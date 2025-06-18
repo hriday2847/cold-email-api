@@ -14,15 +14,12 @@ load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 
 # Initialize OpenAI client
-client = None
-if api_key:
-    try:
-        from openai import OpenAI
-        client = OpenAI(api_key=api_key)
-    except TypeError:
-        # Fallback for older OpenAI versions
-        openai.api_key = api_key
-        client = openai
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("Missing OpenAI API key")
+
+openai.api_key = api_key
+client = openai
 
 app = FastAPI(
     title="Pepsales AI API",
