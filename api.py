@@ -30,7 +30,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # or list specific frontend domains
+    allow_origins=["https://pepsales-new.webflow.io"],  # or list specific frontend domains
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
